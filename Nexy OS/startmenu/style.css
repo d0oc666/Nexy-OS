@@ -1,0 +1,334 @@
+/* =============================================================================
+   style.css - NEXY Start Menu - עיצוב
+   ערכת נושא כהה עם libadwaita
+   כל הצבעים מוגדרים כמשתנים - ניתן לשנות בקלות
+   ============================================================================= */
+
+/* ── משתני ערכת נושא ─────────────────────────────────────── */
+@define-color sm-bg              rgba(28, 28, 38, 0.92);
+@define-color sm-bg-solid        #1c1c26;
+@define-color sm-surface         rgba(42, 42, 58, 0.85);
+@define-color sm-surface-hover   rgba(60, 60, 82, 0.90);
+@define-color sm-surface-active  rgba(80, 80, 110, 0.95);
+@define-color sm-border          rgba(255, 255, 255, 0.08);
+@define-color sm-accent          #5b9cf6;
+@define-color sm-accent-hover    #7ab3ff;
+@define-color sm-accent-bg       rgba(91, 156, 246, 0.18);
+@define-color sm-text-primary    rgba(255, 255, 255, 0.95);
+@define-color sm-text-secondary  rgba(255, 255, 255, 0.55);
+@define-color sm-text-disabled   rgba(255, 255, 255, 0.30);
+@define-color sm-danger          #f05050;
+@define-color sm-danger-hover    #ff6565;
+@define-color sm-separator       rgba(255, 255, 255, 0.06);
+
+/* ── חלון ראשי ────────────────────────────────────────────── */
+.start-menu-window {
+    background: @sm-bg;
+    border-radius: 16px;
+    border: 1px solid @sm-border;
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ── שורת חיפוש ───────────────────────────────────────────── */
+.search-bar-box {
+    padding: 20px 20px 12px 20px;
+}
+
+.search-entry {
+    background: @sm-surface;
+    border: 1px solid @sm-border;
+    border-radius: 12px;
+    color: @sm-text-primary;
+    font-size: 15px;
+    padding: 10px 16px;
+    min-height: 44px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.search-entry:focus {
+    border-color: @sm-accent;
+    box-shadow: 0 0 0 3px @sm-accent-bg;
+    outline: none;
+}
+
+.search-entry placeholder {
+    color: @sm-text-secondary;
+}
+
+/* ── תוצאות חיפוש ─────────────────────────────────────────── */
+.search-results-box {
+    padding: 0 12px 8px 12px;
+}
+
+.search-result-row {
+    background: transparent;
+    border-radius: 10px;
+    padding: 6px 10px;
+    transition: background 100ms ease;
+}
+
+.search-result-row:hover,
+.search-result-row:focus {
+    background: @sm-surface-hover;
+}
+
+.search-result-row:selected,
+.search-result-row.selected {
+    background: @sm-accent-bg;
+}
+
+.search-result-name {
+    color: @sm-text-primary;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.search-result-desc {
+    color: @sm-text-secondary;
+    font-size: 12px;
+}
+
+/* תוצאת מחשבון */
+.calc-result-box {
+    background: @sm-surface;
+    border-radius: 10px;
+    padding: 8px 16px;
+    margin: 0 12px 8px 12px;
+    border: 1px solid @sm-border;
+}
+
+.calc-result-label {
+    color: @sm-accent;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ── כותרות אזורים ────────────────────────────────────────── */
+.section-header {
+    padding: 12px 20px 6px 20px;
+}
+
+.section-title {
+    color: @sm-text-secondary;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.section-show-all {
+    color: @sm-accent;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: background 100ms ease;
+}
+
+.section-show-all:hover {
+    background: @sm-accent-bg;
+}
+
+/* ── אייקוני אפליקציות (מוצמד + רשת) ────────────────────── */
+.app-grid {
+    padding: 0 16px 8px 16px;
+}
+
+.app-icon-button {
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 6px 6px 6px;
+    transition: background 120ms ease, transform 120ms ease;
+}
+
+.app-icon-button:hover {
+    background: @sm-surface-hover;
+    transform: scale(1.04);
+}
+
+.app-icon-button:active {
+    background: @sm-surface-active;
+    transform: scale(0.97);
+}
+
+.app-icon-label {
+    color: @sm-text-primary;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* ── אזור אחרונים ─────────────────────────────────────────── */
+.recent-list {
+    padding: 0 12px 8px 12px;
+}
+
+.recent-row {
+    background: transparent;
+    border-radius: 10px;
+    padding: 7px 10px;
+    transition: background 100ms ease;
+}
+
+.recent-row:hover {
+    background: @sm-surface-hover;
+}
+
+.recent-name {
+    color: @sm-text-primary;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.recent-time {
+    color: @sm-text-secondary;
+    font-size: 11px;
+}
+
+/* ── כל האפליקציות ────────────────────────────────────────── */
+.all-apps-scroll {
+    min-height: 220px;
+}
+
+.all-apps-list {
+    padding: 0 12px 8px 12px;
+}
+
+.category-label {
+    color: @sm-text-secondary;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    padding: 8px 10px 4px 10px;
+}
+
+.all-app-row {
+    background: transparent;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: background 100ms ease;
+}
+
+.all-app-row:hover {
+    background: @sm-surface-hover;
+}
+
+.all-app-name {
+    color: @sm-text-primary;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ── מפריד ────────────────────────────────────────────────── */
+.sm-separator {
+    background: @sm-separator;
+    min-height: 1px;
+    margin: 4px 20px;
+}
+
+/* ── סרגל תחתון ───────────────────────────────────────────── */
+.bottom-bar {
+    background: rgba(20, 20, 30, 0.7);
+    border-top: 1px solid @sm-border;
+    border-radius: 0 0 16px 16px;
+    padding: 10px 16px;
+    min-height: 60px;
+}
+
+/* כפתור משתמש */
+.user-button {
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 10px;
+    transition: background 100ms ease;
+}
+
+.user-button:hover {
+    background: @sm-surface-hover;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 2px solid @sm-accent;
+}
+
+.username-label {
+    color: @sm-text-primary;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+/* כפתורי כיבוי */
+.power-button {
+    background: transparent;
+    border: 1px solid @sm-border;
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: @sm-text-secondary;
+    font-size: 12px;
+    transition: all 100ms ease;
+}
+
+.power-button:hover {
+    background: @sm-surface-hover;
+    color: @sm-text-primary;
+    border-color: rgba(255,255,255,0.15);
+}
+
+.power-button.destructive {
+    color: @sm-danger;
+    border-color: rgba(240, 80, 80, 0.25);
+}
+
+.power-button.destructive:hover {
+    background: rgba(240, 80, 80, 0.15);
+    color: @sm-danger-hover;
+}
+
+/* ── תגיות "נוסף לאחרונה" ─────────────────────────────────── */
+.new-badge {
+    background: @sm-accent;
+    color: white;
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+scrollbar {
+    background: transparent;
+    min-width: 6px;
+}
+
+scrollbar slider {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    min-width: 5px;
+    min-height: 40px;
+}
+
+scrollbar slider:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+
+/* ── אנימציית כניסה (מחולל על ידי window.py) ─────────────── */
+.menu-fade-in {
+    animation: fadeSlideIn 150ms ease-out;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        margin-bottom: -16px;
+    }
+    to {
+        opacity: 1;
+        margin-bottom: 0;
+    }
+}

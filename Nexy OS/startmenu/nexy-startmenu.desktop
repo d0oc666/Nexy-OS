@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=NEXY תפריט התחלה
+Name[he]=NEXY תפריט התחלה
+Comment=מפעיל האפליקציות של NEXY OS
+Exec=python3 /usr/lib/nexy/startmenu/main.py
+Icon=start-here
+Terminal=false
+Type=Application
+Categories=System;
+NoDisplay=true
+X-NEXY-Autostart=true
